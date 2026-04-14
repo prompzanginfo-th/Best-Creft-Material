@@ -1,86 +1,202 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>Best Craft Material</title>
+import Image from 'next/image'
 
-<style>
-body {
-  margin:0;
-  font-family:sans-serif;
-  background:#f5f7fa;
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-slate-900 font-sans">
+      {/* 1. Top Header & Navigation */}
+      <header className="bg-[#0B1B32] text-white sticky top-0 z-50 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            {/* โลโก้ BCM */}
+            <div className="bg-[#EAB308] text-[#0B1B32] p-1.5 rounded font-black text-xl tracking-tighter">BCM</div>
+            <div className="leading-none">
+              <span className="block text-sm font-bold tracking-widest text-[#EAB308]">BEST CRAFT</span>
+              <span className="text-xs text-gray-400">MATERIAL</span>
+            </div>
+          </div>
+          <nav className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#" className="hover:text-[#EAB308] transition">หน้าแรก</a>
+            <a href="#" className="hover:text-[#EAB308] transition">สินค้าทั้งหมด</a>
+            <a href="#" className="hover:text-[#EAB308] transition">ผลงานโครงการ</a>
+            <a href="#" className="hover:text-[#EAB308] transition">ติดต่อเรา</a>
+          </nav>
+          <div className="flex gap-4 items-center">
+            <span className="hidden lg:block text-xs text-gray-400">📞 02-999-XXXX</span>
+            <button className="bg-[#EAB308] text-[#0B1B32] px-4 py-2 rounded-full text-xs font-bold hover:bg-yellow-500 transition">
+              ขอใบเสนอราคา
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* 2. Hero Section - สไตล์ STRATECH (เข้ม/แพง) */}
+      <section className="relative bg-[#0B1B32] pt-20 pb-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-white">
+            <p className="text-[#EAB308] font-bold tracking-[0.2em] mb-4 uppercase">แหล่งรวมวัสดุคุณภาพครบวงจร</p>
+            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+              Best Craft <br />
+              <span className="text-[#EAB308]">Material</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-lg">
+              เบสท์ คราฟท์ แมททีเรียล - จำหน่ายวัสดุคุณภาพครบวงจร 
+              สำหรับงานก่อสร้างและงานฝีมือ บริการดี ราคาดี ส่งไว
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-[#EAB308] text-[#0B1B32] px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-yellow-500/20">
+                ดูสินค้าทั้งหมด
+              </button>
+              <button className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition">
+                สั่งทาง LINE
+              </button>
+            </div>
+          </div>
+          <div className="hidden lg:block relative h-[500px] w-full bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
+             {/* ใส่รูปกลุ่มสินค้าที่คุณพึ่ง Generate มาตรงนี้ */}
+             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B32] to-transparent"></div>
+             <div className="absolute bottom-8 left-8 text-white">
+                <span className="text-xs bg-[#EAB308] text-[#0B1B32] px-2 py-1 rounded font-bold uppercase mb-2 inline-block">Featured</span>
+                <p className="text-2xl font-bold italic">ศูนย์รวมวัสดุมาตรฐานอุตสาหกรรม</p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Feature Bar - สไตล์ LUMINTU (สะอาด/โปร่ง) */}
+      <div className="max-w-6xl mx-auto -mt-12 relative z-20 px-4">
+        <div className="bg-white rounded-2xl shadow-xl grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100 p-8">
+          <div className="flex flex-col items-center text-center p-4">
+            <span className="text-3xl mb-2">🚚</span>
+            <h4 className="font-bold text-[#0B1B32]">ส่งไว</h4>
+            <p className="text-xs text-gray-500">Trust Trucker</p>
+          </div>
+          <div className="flex flex-col items-center text-center p-4">
+            <span className="text-3xl mb-2">🏷️</span>
+            <h4 className="font-bold text-[#0B1B32]">ราคาดี</h4>
+            <p className="text-xs text-gray-500">Price Price</p>
+          </div>
+          <div className="flex flex-col items-center text-center p-4">
+            <span className="text-3xl mb-2">🤝</span>
+            <h4 className="font-bold text-[#0B1B32]">บริการดี</h4>
+            <p className="text-xs text-gray-500">Handshake</p>
+          </div>
+          <div className="flex flex-col items-center text-center p-4">
+            <span className="text-3xl mb-2">📝</span>
+            <h4 className="font-bold text-[#0B1B32]">ปรึกษาทันที</h4>
+            <p className="text-xs text-gray-500">Instant Quote</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Product Categories */}
+      <section className="max-w-7xl mx-auto px-4 py-24">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl font-black text-[#0B1B32] mb-2 uppercase tracking-tight">เลือกสินค้าคุณภาพครบวงจร</h2>
+            <p className="text-gray-500">สำหรับงานก่อสร้างและงานฝีมือทุกประเภท</p>
+          </div>
+          <button className="text-[#0B1B32] font-bold border-b-2 border-[#EAB308] pb-1 hover:text-[#EAB308] transition">ดูทั้งหมด →</button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Card: Steel */}
+          <div className="group relative bg-slate-200 rounded-2xl h-[350px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+            <div className="absolute bottom-6 left-6 z-20 text-white">
+              <span className="text-gray-300 text-sm uppercase tracking-widest block mb-1">Steel</span>
+              <h3 className="text-2xl font-bold">วัสดุเหล็ก</h3>
+            </div>
+          </div>
+
+          {/* Card: Cement */}
+          <div className="group relative bg-slate-300 rounded-2xl h-[350px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+            <div className="absolute bottom-6 left-6 z-20 text-white">
+              <span className="text-gray-300 text-sm uppercase tracking-widest block mb-1">Cement</span>
+              <h3 className="text-2xl font-bold">ปูนซีเมนต์ (SCG/ตาเสือ)</h3>
+            </div>
+          </div>
+
+          {/* Card: Roofing */}
+          <div className="group relative bg-slate-200 rounded-2xl h-[350px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+            <div className="absolute bottom-6 left-6 z-20 text-white">
+              <span className="text-gray-300 text-sm uppercase tracking-widest block mb-1">Roofing</span>
+              <h3 className="text-2xl font-bold">วัสดุหลังคา</h3>
+            </div>
+          </div>
+
+          {/* Card: Electric & Plumbing */}
+          <div className="group relative bg-slate-300 rounded-2xl h-[350px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+            <div className="absolute bottom-6 left-6 z-20 text-white">
+              <span className="text-gray-300 text-sm uppercase tracking-widest block mb-1">Systems</span>
+              <h3 className="text-2xl font-bold">ระบบน้ำและไฟ (THW/PVC)</h3>
+            </div>
+          </div>
+
+          {/* Card: Woodcraft */}
+          <div className="group relative bg-slate-200 rounded-2xl lg:col-span-2 h-[350px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+            <div className="absolute bottom-6 left-6 z-20 text-white">
+              <span className="text-gray-300 text-sm uppercase tracking-widest block mb-1">Craft & Paints</span>
+              <h3 className="text-2xl font-bold font-craft">งานฝีมือ & สีไม้</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Partners Section */}
+      <section className="bg-white py-16 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-gray-400 font-bold uppercase text-xs tracking-widest mb-8">Official Distributor of</p>
+          <div className="flex flex-wrap justify-center gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <span className="text-2xl font-black text-[#1F3A5F]">SCG</span>
+            <span className="text-2xl font-black text-red-600">TIGER</span>
+            <span className="text-2xl font-black text-blue-600">DOS</span>
+            <span className="text-2xl font-black text-green-600">SANWA</span>
+            <span className="text-2xl font-black text-[#1F3A5F]">CPAC</span>
+            <span className="text-2xl font-black text-[#1F3A5F]">TOA</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Footer */}
+      <footer className="bg-[#0B1B32] text-white py-12 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="bg-[#EAB308] text-[#0B1B32] px-2 py-1 rounded font-black text-lg">BCM</div>
+              <span className="font-bold text-xl tracking-tight uppercase">Best Craft Material</span>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              แหล่งรวมวัสดุคุณภาพดีที่สุดสำหรับคุณ บริการดี ราคาดี ส่งไว 
+              เราพร้อมเป็นคู่คิดให้งานก่อสร้างของคุณสำเร็จอย่างมืออาชีพ
+            </p>
+          </div>
+          <div>
+            <h4 className="font-bold text-lg mb-6 border-b border-[#EAB308] inline-block pb-1">ติดต่อเรา</h4>
+            <ul className="text-gray-400 text-sm space-y-3">
+              <li>📞 02-999-XXXX</li>
+              <li>💬 LINE: @bestcraft</li>
+              <li>✉️ info@bestcraftmaterial.com</li>
+              <li>📍 นนทบุรี, ประเทศไทย</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-lg mb-6 border-b border-[#EAB308] inline-block pb-1">ติดตามเรา</h4>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#EAB308] hover:text-[#0B1B32] cursor-pointer transition">FB</div>
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#EAB308] hover:text-[#0B1B32] cursor-pointer transition">LI</div>
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#EAB308] hover:text-[#0B1B32] cursor-pointer transition">IG</div>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/5 text-center text-gray-500 text-xs uppercase tracking-widest">
+          © 2026 Best Craft Material. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  )
 }
-
-.hero {
-  background:#1e4d7a;
-  color:white;
-  text-align:center;
-  padding:80px 20px 140px;
-  position:relative;
-}
-
-.hero::after {
-  content:"";
-  position:absolute;
-  bottom:-80px;
-  width:100%;
-  height:160px;
-  background:#f5f7fa;
-  border-radius:50% 50% 0 0;
-}
-
-.btn {
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 24px;
-  background:#ff7a00;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.products {
-  margin-top:-80px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  padding:20px;
-}
-
-.card {
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.card img {
-  width:100%;
-  height:150px;
-  object-fit:cover;
-}
-</style>
-</head>
-
-<body>
-
-<section class="hero">
-  <h1>BEST CRAFT MATERIAL</h1>
-  <p>วัสดุก่อสร้างครบจบในที่เดียว</p>
-
-  <a href="https://line.me/R/ti/p/@YOURID" class="btn">
-    ติดต่อทาง LINE
-  </a>
-</section>
-
-<section class="products">
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-  </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581090700227-1e8f9b4c4c4f">
-  </div>
-</section>
-
-</body>
-</html>
