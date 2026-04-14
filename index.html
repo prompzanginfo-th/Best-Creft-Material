@@ -1,30 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+<meta charset="UTF-8">
 <title>Best Craft Material</title>
+
 <style>
-body{margin:0;font-family:sans-serif;background:#f5f7fa;}
-.hero{background:#1e4d7a;color:white;text-align:center;padding:80px 20px 140px;position:relative;}
-.hero::after{content:"";position:absolute;bottom:-80px;width:100%;height:160px;background:#f5f7fa;border-radius:50% 50% 0 0;}
-.products{margin-top:-80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:20px;}
-.card{background:white;border-radius:12px;overflow:hidden;}
-.card img{width:100%;height:150px;object-fit:cover;}
+body {
+  margin:0;
+  font-family:sans-serif;
+  background:#f5f7fa;
+}
+
+.hero {
+  background:#1e4d7a;
+  color:white;
+  text-align:center;
+  padding:80px 20px 140px;
+  position:relative;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  bottom:-80px;
+  width:100%;
+  height:160px;
+  background:#f5f7fa;
+  border-radius:50% 50% 0 0;
+}
+
+.btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+  background:#ff7a00;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.products {
+  margin-top:-80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card {
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.card img {
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
 </style>
 </head>
 
 <body>
+
 <section class="hero">
-<h1>BEST CRAFT MATERIAL</h1>
-<p>วัสดุก่อสร้างครบจบในที่เดียว</p>
+  <h1>BEST CRAFT MATERIAL</h1>
+  <p>วัสดุก่อสร้างครบจบในที่เดียว</p>
+
+  <a href="https://line.me/R/ti/p/@YOURID" class="btn">
+    ติดต่อทาง LINE
+  </a>
 </section>
 
 <section class="products">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581090700227-1e8f9b4c4c4f">
-</div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1581090700227-1e8f9b4c4c4f">
+  </div>
 </section>
+
 </body>
 </html>
