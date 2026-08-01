@@ -28,7 +28,26 @@ Owner: only **2 human users** (OdooBot does not count).
 | Administrator / `prompzang.info@gmail.com` | Current Owner login (preferences show Thai UI, company PHROM SANG MATERIAL CO., LTD.) |
 | Salesperson names on quotes | Chairat passu…, kittimanee (Sa…) — may map to those 2 users |
 
-Personal Preferences ≠ Access Rights. To check groups: **Settings → Users & Companies → Users → [user] → Access Rights**.
+### Where to set rights (correct path)
+
+1. **Settings → Users & Companies → Users** (ผู้ใช้และบริษัท → ผู้ใช้)
+2. Open each user → tab **Access Rights / สิทธิ์การเข้าถึง**
+3. Set app groups (Sales, Inventory, Accounting, …)
+
+### Do not edit this by default
+
+**Settings → Technical → Access Rights** (`/odoo/access-rights`, `ir.model.access`) is the global ACL table (~hundreds of rows). Those rows are module defaults. Do **not** retick Read/Write/Create/Delete there to “fix 2 users” — change the **user’s groups** instead.
+
+### Recommended groups (2-user BCM)
+
+Only apply after Owner confirms who is Admin vs Sales:
+
+| User role | Sales | Inventory | Purchase | Accounting | Administration |
+|-----------|-------|-----------|----------|------------|----------------|
+| **Owner / Admin** | Administrator | Administrator | Administrator | Accountant or Administrator (Owner choice) | Access Rights (Settings) |
+| **Sales user** | User: Own Documents Only **or** User: All Documents | User (if need stock) | *blank* unless buys | *blank* or invoicing only if needed | *blank* |
+
+If both humans are sales + one also owns the company: keep Admin on `prompzang.info@gmail.com`; give the second user Sales only.
 
 ## When this skill applies
 
