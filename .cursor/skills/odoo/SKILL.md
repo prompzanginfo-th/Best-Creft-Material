@@ -21,14 +21,14 @@ Cloud agents do **not** share the Owner’s Simple Browser cookie. A logged-in b
 
 ## Users (Owner confirmed)
 
-Only **2 human users** in this DB right now (OdooBot does not count):
+Owner: only **2 human users** (OdooBot does not count).
 
-| User (display) | Role note |
-|----------------|-----------|
-| Chairat passu… | Salesperson on quotations |
-| kittimanee (Sa…) | Salesperson on quotations |
+| Identity | Note |
+|----------|------|
+| Administrator / `prompzang.info@gmail.com` | Current Owner login (preferences show Thai UI, company PHROM SANG MATERIAL CO., LTD.) |
+| Salesperson names on quotes | Chairat passu…, kittimanee (Sa…) — may map to those 2 users |
 
-Expect salesperson columns to show these two (+ OdooBot on system-created rows). Do not assume more sales users exist unless Owner adds them.
+Personal Preferences ≠ Access Rights. To check groups: **Settings → Users & Companies → Users → [user] → Access Rights**.
 
 ## When this skill applies
 
