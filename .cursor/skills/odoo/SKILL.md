@@ -19,35 +19,44 @@ Auth is required for Sales. Do not guess passwords. If blocked at login, ask the
 
 Cloud agents do **not** share the Owner’s Simple Browser cookie. A logged-in browser pane on the Owner’s machine ≠ API/session access for the agent.
 
-## Users (Owner confirmed)
+## Users (from Owner screenshots)
 
-Owner: only **2 human users** (OdooBot does not count).
+OdooBot does not count. Human users seen:
 
-| Identity | Note |
-|----------|------|
-| Administrator / `prompzang.info@gmail.com` | Current Owner login (preferences show Thai UI, company PHROM SANG MATERIAL CO., LTD.) |
-| Salesperson names on quotes | Chairat passu…, kittimanee (Sa…) — may map to those 2 users |
+| User | Login / email | Intended role |
+|------|---------------|---------------|
+| Administrator | `prompzang.info@gmail.com` | Owner / system admin |
+| Chairat passuwan | `hengskill4@gmail.com` | Sales |
+| kittmanee (Sale Project Manager) | `kittithaworawut@gmail.com` | Sales / project |
+| บันชี (`testaccount`) | (accounting test user) | Accounting |
 
 ### Where to set rights (correct path)
 
-1. **Settings → Users & Companies → Users** (ผู้ใช้และบริษัท → ผู้ใช้)
-2. Open each user → tab **Access Rights / สิทธิ์การเข้าถึง**
-3. Set app groups (Sales, Inventory, Accounting, …)
+1. **Settings → Users & Companies → Users**
+2. Open each user → tab **Access Rights / สิทธิ์การเข้าใช้งาน**
+3. Set app groups — do **not** bulk-edit Technical → Access Rights (`ir.model.access`)
 
-### Do not edit this by default
+### Verdict on current rights (needs Owner fix)
 
-**Settings → Technical → Access Rights** (`/odoo/access-rights`, `ir.model.access`) is the global ACL table (~hundreds of rows). Those rows are module defaults. Do **not** retick Read/Write/Create/Delete there to “fix 2 users” — change the **user’s groups** instead.
+| User | Status | Main problems |
+|------|--------|----------------|
+| Chairat | เกือบโอเค | Sales = All Documents (เห็นของทุกคน); มี Purchase User; มี Invoicing |
+| kittmanee | **สิทธิ์กว้างเกิน** | Purchase **Administrator** + Inventory **Administrator** + Bank check + Export Allow ทั้งที่บทบาทขาย |
+| บันชี | บัญชีโอเคบางส่วน | Accounting Admin โอเค; แต่ Sales = All Documents; Contacts = No อาจกระทบออกบิล |
 
-### Recommended groups (2-user BCM)
+### Recommended groups (apply only after Owner approves)
 
-Only apply after Owner confirms who is Admin vs Sales:
-
-| User role | Sales | Inventory | Purchase | Accounting | Administration |
-|-----------|-------|-----------|----------|------------|----------------|
-| **Owner / Admin** | Administrator | Administrator | Administrator | Accountant or Administrator (Owner choice) | Access Rights (Settings) |
-| **Sales user** | User: Own Documents Only **or** User: All Documents | User (if need stock) | *blank* unless buys | *blank* or invoicing only if needed | *blank* |
-
-If both humans are sales + one also owns the company: keep Admin on `prompzang.info@gmail.com`; give the second user Sales only.
+| Field | Chairat (ขาย) | kittmanee (ขาย/โปรเจกต์) | บันชี (บัญชี) | Administrator |
+|-------|---------------|---------------------------|---------------|---------------|
+| บทบาท | ผู้ใช้ | ผู้ใช้ | ผู้ใช้ | **ผู้ดูแลระบบ** |
+| การขาย | ผู้ใช้: เอกสารของตัวเอง *หรือ* เอกสารทั้งหมด (Owner เลือก) | เหมือน Chairat | **ไม่** หรือแค่อ่านผ่านงานบิล — อย่า All Documents ถ้าไม่จำเป็น | Administrator |
+| การบัญชี | **ไม่** (หรือ Invoicing ถ้า Owner ให้เปิดบิลเอง) | **ไม่** | **ผู้ดูแลระบบ** | Accountant/Admin |
+| ธนาคาร | ไม่ | **ไม่** | ตามที่บัญชีใช้จริง | ตาม Owner |
+| สั่งซื้อ | **ไม่** | **ไม่** (ยกเว้น Owner ให้จัดซื้อ) | ไม่ หรือ User ถ้้าต้องเห็น PO | Administrator |
+| สินค้าคงคลัง | ผู้ใช้ (ถ้าต้องดูสต็อก) | ผู้ใช้ — **ไม่ใช่** Administrator | View/User ตามงาน | Administrator |
+| สินค้า | สร้าง | สร้าง | View | ตาม Admin |
+| ติดต่อ | การสร้าง | การสร้าง | **อย่างน้อยอ่าน/สร้าง** (อย่า No ถ้าออกบิล) | ตาม Admin |
+| ส่งออก | ไม่ | **ไม่** | ไม่ เว้น Owner อนุญาต | ตาม Admin |
 
 ## When this skill applies
 
