@@ -19,50 +19,42 @@ Auth is required for Sales. Do not guess passwords. If blocked at login, ask the
 
 Cloud agents do **not** share the Owner’s Simple Browser cookie. A logged-in browser pane on the Owner’s machine ≠ API/session access for the agent.
 
-## Users (from Owner screenshots)
+## Users (Owner: no separate accounting user)
 
-OdooBot does not count. Human users seen:
+OdooBot does not count. Active humans:
 
-| User | Login / email | Intended role |
-|------|---------------|---------------|
-| Administrator | `prompzang.info@gmail.com` | Owner / system admin |
+| User | Login / email | Role |
+|------|---------------|------|
+| Administrator | `prompzang.info@gmail.com` | Owner — system + accounting |
 | Chairat passuwan | `hengskill4@gmail.com` | Sales |
 | kittmanee (Sale Project Manager) | `kittithaworawut@gmail.com` | Sales / project |
-| บันชี (`testaccount`) | (accounting test user) | Accounting |
 
-### Where to set rights (correct path)
+**บันชี (`testaccount`):** Owner ordered removed from ops — **Archive / deactivate**, do not hard-delete history. Accounting stays on Administrator only.
 
-1. **Settings → Users & Companies → Users**
-2. Open each user → tab **Access Rights / สิทธิ์การเข้าใช้งาน**
-3. Set app groups — do **not** bulk-edit Technical → Access Rights (`ir.model.access`)
+### Access rights — follow the checklist file
 
-### Verdict on current rights (needs Owner fix)
+Step-by-step (Thai, tick boxes): [access-rights-checklist.md](access-rights-checklist.md)
 
-| User | Status | Main problems |
-|------|--------|----------------|
-| Chairat | เกือบโอเค | Sales = All Documents (เห็นของทุกคน); มี Purchase User; มี Invoicing |
-| kittmanee | **สิทธิ์กว้างเกิน** | Purchase **Administrator** + Inventory **Administrator** + Bank check + Export Allow ทั้งที่บทบาทขาย |
-| บันชี | บัญชีโอเคบางส่วน | Accounting Admin โอเค; แต่ Sales = All Documents; Contacts = No อาจกระทบออกบิล |
+Path: **Settings → Users → [user] → Access Rights**. Never bulk-edit Technical → Access Rights.
 
-### Recommended groups (apply only after Owner approves)
+### Target groups (no บัญชี user)
 
-| Field | Chairat (ขาย) | kittmanee (ขาย/โปรเจกต์) | บันชี (บัญชี) | Administrator |
-|-------|---------------|---------------------------|---------------|---------------|
-| บทบาท | ผู้ใช้ | ผู้ใช้ | ผู้ใช้ | **ผู้ดูแลระบบ** |
-| การขาย | ผู้ใช้: เอกสารของตัวเอง *หรือ* เอกสารทั้งหมด (Owner เลือก) | เหมือน Chairat | **ไม่** หรือแค่อ่านผ่านงานบิล — อย่า All Documents ถ้าไม่จำเป็น | Administrator |
-| การบัญชี | **ไม่** (หรือ Invoicing ถ้า Owner ให้เปิดบิลเอง) | **ไม่** | **ผู้ดูแลระบบ** | Accountant/Admin |
-| ธนาคาร | ไม่ | **ไม่** | ตามที่บัญชีใช้จริง | ตาม Owner |
-| สั่งซื้อ | **ไม่** | **ไม่** (ยกเว้น Owner ให้จัดซื้อ) | ไม่ หรือ User ถ้้าต้องเห็น PO | Administrator |
-| สินค้าคงคลัง | ผู้ใช้ (ถ้าต้องดูสต็อก) | ผู้ใช้ — **ไม่ใช่** Administrator | View/User ตามงาน | Administrator |
-| สินค้า | สร้าง | สร้าง | View | ตาม Admin |
-| ติดต่อ | การสร้าง | การสร้าง | **อย่างน้อยอ่าน/สร้าง** (อย่า No ถ้าออกบิล) | ตาม Admin |
-| ส่งออก | ไม่ | **ไม่** | ไม่ เว้น Owner อนุญาต | ตาม Admin |
+| Field | Chairat | kittmanee | Administrator |
+|-------|---------|-----------|---------------|
+| บทบาท | ผู้ใช้ | ผู้ใช้ | **ผู้ดูแลระบบ** |
+| การขาย | เอกสารของตัวเอง *(default)* หรือ ทั้งหมด | เหมือน Chairat | Administrator |
+| การบัญชี / ธนาคาร | **ไม่** | **ไม่** | ตาม Owner |
+| สั่งซื้อ | **ไม่** | **ไม่** (was Admin — must remove) | Administrator |
+| สินค้าคงคลัง | ผู้ใช้ | ผู้ใช้ (was Admin — must downgrade) | Administrator |
+| สินค้า / ติดต่อ | สร้าง | สร้าง | ตาม Admin |
+| ส่งออก | ไม่ | **ไม่** (was Allow) | ตาม Admin |
 
 ## When this skill applies
 
 - User opens or pastes the Railway Odoo URL / `/odoo/sales`
 - Speech/dictation: โอดีโอ / โอดีโอโอ / โอดู → **Odoo**
 - Sales work: quotation, SO, customer, pricelist, delivery from sales, invoice from order
+- Access rights / user groups / กลัวพลาดตอนตั้งสิทธิ์ → use checklist file
 
 ## Hard rules (Owner policy)
 
