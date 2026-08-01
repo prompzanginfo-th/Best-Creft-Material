@@ -17,6 +17,19 @@ description: Work with Best Craft Material Odoo 19 Sales on Railway—quotations
 
 Auth is required for Sales. Do not guess passwords. If blocked at login, ask the Owner for access (or a read-only session) before changing anything.
 
+Cloud agents do **not** share the Owner’s Simple Browser cookie. A logged-in browser pane on the Owner’s machine ≠ API/session access for the agent.
+
+## Users (Owner confirmed)
+
+Only **2 human users** in this DB right now (OdooBot does not count):
+
+| User (display) | Role note |
+|----------------|-----------|
+| Chairat passu… | Salesperson on quotations |
+| kittimanee (Sa…) | Salesperson on quotations |
+
+Expect salesperson columns to show these two (+ OdooBot on system-created rows). Do not assume more sales users exist unless Owner adds them.
+
 ## When this skill applies
 
 - User opens or pastes the Railway Odoo URL / `/odoo/sales`
